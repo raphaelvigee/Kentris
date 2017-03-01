@@ -15,7 +15,7 @@ void setup() {
 
 
     matrix.begin();
-    matrix.setBrightness(30);
+    matrix.setBrightness(5);
     matrix.show(); // Initialize all pixels to 'off'
 }
 
