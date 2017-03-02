@@ -65,7 +65,10 @@ void Game::drawStaticBlocks() {
 }
 void Game::lost() {
     this->neoMatrix.fillScreen(0);
-    this->neoMatrix.drawLine(1, 9, 5, 9, red);
+
+    this->neoMatrix.drawLine(0, 0, 6, 9, red);
+    this->neoMatrix.drawLine(0, 9, 6, 0, red);
+
     this->neoMatrix.show();
 }
 
