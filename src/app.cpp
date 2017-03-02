@@ -17,7 +17,8 @@ void setup() {
 void loop() {
     if(g->isCurrentPieceClashing()) {
         g->lost();
-        while(1){}
+        delay(500);
+        return;
     }
 
     unsigned long currentMillis = millis();
