@@ -1,36 +1,32 @@
 #include <Arduino.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_NeoMatrix.h>
+#include "Game.h"
 
-#define ROWS 10
-#define COLUMNS 7
+Game *g;
 
-Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(ROWS, COLUMNS, 6,
-                                               NEO_MATRIX_TOP + NEO_MATRIX_RIGHT +
-                                               NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,
-                                               NEO_GRB + NEO_KHZ800);
+unsigned long previousMillis = 0;
+long interval = 700;
 
 void setup() {
-    // put your setup code here, to run once:
+    Serial.begin(9600);
+    randomSeed(analogRead(0));
 
-
-    matrix.begin();
-    matrix.setBrightness(5);
-    matrix.show(); // Initialize all pixels to 'off'
+    g = new Game();
+    g->setup();
 }
 
 void loop() {
-    uint32_t red = matrix.Color(0, 255, 0);
-    //matrix.drawPixel(0, 0, red);
-    //matrix.show();
-
-
-    for (int r = 0; r < ROWS; r++) {
-        for (int c = 0; c < COLUMNS; c++) {
-            matrix.fillScreen(0);
-            matrix.drawPixel(r, c, red);
-            matrix.show();
-            delay(100);
-        }
+    if(g->isCurrentPieceClashing()) {
+        g->lost();
+        while(1){}
     }
+
+    unsigned long currentMillis = millis();
+
+    if(currentMillis - previousMillis > interval) {
+        previousMillis = currentMillis;
+
+        g->requestDown();
+    }
+
+    g->drawBoard();
 }
