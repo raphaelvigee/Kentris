@@ -15,6 +15,8 @@ void Game::setup() {
     this->neoMatrix.setBrightness(10);
     this->neoMatrix.show();
 
+    this->neoMatrix.fillScreen(0);
+
     this->neoMatrix.drawLine(1, 6, 5, 6, green);
 
     this->neoMatrix.show();
@@ -63,6 +65,7 @@ void Game::drawStaticBlocks() {
         }
     }
 }
+
 void Game::lost() {
     this->neoMatrix.fillScreen(0);
 
@@ -136,6 +139,10 @@ bool Game::canGoDown() {
             if(Pieces::GetColor(this->currentPieceKind, this->currentPieceRotation, shapeX, shapeY) != 0) {
                 int x = this->currentPieceX + shapeX;
                 int y = this->currentPieceY + shapeY + 1;
+
+                if(x > COLUMNS - 1 || x < 0 || y < 0) {
+                    continue;
+                }
 
                 if(y > ROWS - 1) {
                     return false;
