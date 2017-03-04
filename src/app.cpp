@@ -1,10 +1,6 @@
 #include <Arduino.h>
 #include "Game.h"
 
-#define L_PIN 8
-#define C_PIN 9
-#define R_PIN 10
-
 Game *g;
 
 unsigned long previousMillis = 0;

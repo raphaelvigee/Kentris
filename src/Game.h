@@ -15,6 +15,10 @@
 #define DIR_RIGHT 2
 #define ROTATE 3
 
+#define L_PIN 8
+#define C_PIN 9
+#define R_PIN 10
+
 
 class Game {
 private:

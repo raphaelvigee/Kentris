@@ -24,8 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.cpp" afterPath="$PROJECT_DIR$/src/Game.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.h" afterPath="$PROJECT_DIR$/src/Game.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pieces.cpp" afterPath="$PROJECT_DIR$/src/Pieces.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pieces.h" afterPath="$PROJECT_DIR$/src/Pieces.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.cpp" afterPath="$PROJECT_DIR$/src/app.cpp" />
     </list>
     <ignored path="platformio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,18 +51,18 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="0">
               <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
+            <state relative-caret-position="299">
+              <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
               <folding>
                 <element signature="e#42#62#0" expanded="true" />
               </folding>
@@ -81,8 +83,8 @@
       <file leaf-file-name="Game.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,8 +93,14 @@
       <file leaf-file-name="Pieces.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pieces.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+            <state relative-caret-position="250">
+              <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="15" />
+              <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
+              <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="15" />
+              <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="15" />
+              <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="15" />
+              <caret line="27" column="15" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="15" />
+              <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -111,8 +119,8 @@
       <file leaf-file-name="app.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            <state relative-caret-position="36">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -120,11 +128,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pieces.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pieces.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pieces.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="302" column="11" lean-forward="false" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="11" />
+            <state relative-caret-position="1006">
+              <caret line="307" column="20" lean-forward="false" selection-start-line="307" selection-start-column="20" selection-end-line="307" selection-end-column="20" />
+              <caret line="309" column="20" lean-forward="false" selection-start-line="309" selection-start-column="20" selection-end-line="309" selection-end-column="20" />
+              <caret line="311" column="20" lean-forward="false" selection-start-line="311" selection-start-column="20" selection-end-line="311" selection-end-column="20" />
+              <caret line="313" column="20" lean-forward="false" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
+              <caret line="315" column="20" lean-forward="false" selection-start-line="315" selection-start-column="20" selection-end-line="315" selection-end-column="20" />
+              <caret line="317" column="20" lean-forward="false" selection-start-line="317" selection-start-column="20" selection-end-line="317" selection-end-column="20" />
+              <caret line="319" column="20" lean-forward="false" selection-start-line="319" selection-start-column="20" selection-end-line="319" selection-end-column="20" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -150,12 +164,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/Game.h" />
-        <option value="$PROJECT_DIR$/src/app.cpp" />
         <option value="$PROJECT_DIR$/.piolibdeps/Adafruit NeoMatrix_ID215/Adafruit_NeoMatrix.cpp" />
         <option value="$PROJECT_DIR$/src/Pieces.h" />
-        <option value="$PROJECT_DIR$/src/Game.cpp" />
         <option value="$PROJECT_DIR$/src/Pieces.cpp" />
+        <option value="$PROJECT_DIR$/src/app.cpp" />
+        <option value="$PROJECT_DIR$/src/Game.h" />
+        <option value="$PROJECT_DIR$/src/Game.cpp" />
       </list>
     </option>
   </component>
@@ -514,12 +528,12 @@
       <workItem from="1488418933278" duration="10891000" />
       <workItem from="1488465616394" duration="9757000" />
       <workItem from="1488535506009" duration="17601000" />
-      <workItem from="1488603210460" duration="888000" />
+      <workItem from="1488603210460" duration="1338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42289000" />
+    <option name="totallyTimeSpent" value="42739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="24" width="1865" height="1056" extended-state="6" />
@@ -794,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.platformio/packages/framework-arduinoavr/cores/arduino/wiring.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
-          <caret line="105" column="5" lean-forward="false" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platformio.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -818,7 +825,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="0">
           <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding />
         </state>
@@ -856,14 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.piolibdeps/Adafruit NeoMatrix_ID215/Adafruit_NeoMatrix.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1494">
@@ -872,40 +871,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pieces.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="15" />
+          <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="15" />
+          <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="15" />
+          <caret line="26" column="15" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="15" />
+          <caret line="27" column="15" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="15" />
+          <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.platformio/packages/framework-arduinoavr/cores/arduino/wiring.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1033">
+          <caret line="105" column="5" lean-forward="false" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pieces.h">
+    <entry file="file://$PROJECT_DIR$/src/Pieces.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state relative-caret-position="1006">
+          <caret line="307" column="20" lean-forward="false" selection-start-line="307" selection-start-column="20" selection-end-line="307" selection-end-column="20" />
+          <caret line="309" column="20" lean-forward="false" selection-start-line="309" selection-start-column="20" selection-end-line="309" selection-end-column="20" />
+          <caret line="311" column="20" lean-forward="false" selection-start-line="311" selection-start-column="20" selection-end-line="311" selection-end-column="20" />
+          <caret line="313" column="20" lean-forward="false" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
+          <caret line="315" column="20" lean-forward="false" selection-start-line="315" selection-start-column="20" selection-end-line="315" selection-end-column="20" />
+          <caret line="317" column="20" lean-forward="false" selection-start-line="317" selection-start-column="20" selection-end-line="317" selection-end-column="20" />
+          <caret line="319" column="20" lean-forward="false" selection-start-line="319" selection-start-column="20" selection-end-line="319" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
+        <state relative-caret-position="299">
+          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding>
             <element signature="e#42#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pieces.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="302" column="11" lean-forward="false" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>

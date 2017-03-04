@@ -305,19 +305,19 @@ static uint16_t Pieces::GetColor(int piece, int rotation, int x, int y) {
     }
 
     switch (piece) {
-        case 0:
+        case PIECE_O:
             return yellow;
-        case 1:
+        case PIECE_I:
             return cyan;
-        case 2:
+        case PIECE_L:
             return orange;
-        case 3:
+        case PIECE_J:
             return blue;
-        case 4:
+        case PIECE_Z:
             return red;
-        case 5:
+        case PIECE_S:
             return green;
-        case 6:
+        case PIECE_T:
             return purple;
     }
 

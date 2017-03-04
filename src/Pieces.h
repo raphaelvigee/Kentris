@@ -20,6 +20,14 @@
 #ifndef _PIECES_
 #define _PIECES_
 
+#define PIECE_O 0
+#define PIECE_I 1
+#define PIECE_L 2
+#define PIECE_J 3
+#define PIECE_Z 4
+#define PIECE_S 5
+#define PIECE_T 6
+
 class Pieces {
 public:
     static char GetBlockType(int pPiece, int pRotation, int pX, int pY);

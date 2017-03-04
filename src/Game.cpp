@@ -8,7 +8,6 @@
 #include "Game.h"
 #include "Pieces.h"
 
-
 void Game::setup() {
     delay(1000);
     this->neoMatrix.begin();
@@ -88,10 +87,10 @@ void Game::lost() {
     int y = 1;
 
     auto renderScore = [](int x, int y, int score, Game * g) {
-        String textToDisplay = String(score);
+        String text = String(score);
 
         g->neoMatrix.setCursor(x, y);
-        g->neoMatrix.print(textToDisplay);
+        g->neoMatrix.print(text);
         g->neoMatrix.setTextWrap(false);
         g->neoMatrix.setTextColor(score == 0 ? red : white);
         g->neoMatrix.show();
@@ -99,10 +98,17 @@ void Game::lost() {
 
     renderScore(x, y, this->score, this);
 
-    while(x > (-textWidth) && textWidth > matrixW) {
+    bool isReset = false;
+
+    while(x > (-textWidth) && textWidth > matrixW && !isReset) {
         this->neoMatrix.fillScreen(0);
 
         renderScore(--x, y, this->score, this);
+
+        if(digitalRead(L_PIN) == LOW || digitalRead(C_PIN) == LOW || digitalRead(R_PIN) == LOW) {
+            isReset = true;
+            this->reset();
+        }
 
         delay(200);
     }
