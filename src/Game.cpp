@@ -247,7 +247,7 @@ bool Game::canDo(int action, bool allowOutOfMatrix = false) {
                     return false;
                 }
 
-                if(this->staticBlocks[y][x] != 0) {
+                if(this->staticBlocks[y][x] != 0 && isDefined) {
                     return false;
                 }
             }
