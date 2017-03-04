@@ -16,6 +16,13 @@ add_custom_target(
 )
 
 add_custom_target(
+    PLATFORMIO_UPLOAD_MONITOR ALL
+    COMMAND ${PLATFORMIO_CMD} -f -c clion run --target upload
+    COMMAND ${PLATFORMIO_CMD} device monitor
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+add_custom_target(
     PLATFORMIO_CLEAN ALL
     COMMAND ${PLATFORMIO_CMD} -f -c clion run --target clean
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
