@@ -36,6 +36,8 @@ const uint16_t blue = Adafruit_NeoMatrix::Color(0, 0, 255);
 const uint16_t red = Adafruit_NeoMatrix::Color(255, 0, 0);
 const uint16_t orange = Adafruit_NeoMatrix::Color(255, 165, 0);
 const uint16_t purple = Adafruit_NeoMatrix::Color(255, 0, 255);
+const uint16_t yellow = Adafruit_NeoMatrix::Color(255, 255, 0);
+const uint16_t cyan = Adafruit_NeoMatrix::Color(0, 255, 255);
 const uint16_t white = 0xFFFF;
 
 #endif // _PIECES_

@@ -3,9 +3,9 @@
 
 
 // Pieces definition
-char mPieces [7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* vertical blocks */ ] =
+char pieces[7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* vertical blocks */ ] =
 {
-// Square
+// O
   {
    {
     {0, 0, 0, 0, 0},
@@ -100,7 +100,7 @@ char mPieces [7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* 
     {0, 0, 0, 0, 0}
     }
    },
-// L mirrored
+// J
   {
    {
     {0, 0, 0, 0, 0},
@@ -131,7 +131,7 @@ char mPieces [7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* 
     {0, 0, 0, 0, 0}
     }
    },
-// N
+// Z
   {
    {
     {0, 0, 0, 0, 0},
@@ -162,7 +162,7 @@ char mPieces [7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* 
     {0, 0, 0, 0, 0}
     }
    },
-// N mirrored
+// S
   {
    {
     {0, 0, 0, 0, 0},
@@ -228,9 +228,9 @@ char mPieces [7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* 
 
 
 // Displacement of the piece to the position where it is first drawn in the board when it is created
-int mPiecesInitialPosition  [7 /*kind */ ][4 /* rotation */ ][2 /* position */] =
+int piecesInitialPosition [7 /*kind */ ][4 /* rotation */ ][2 /* position */] =
 {
-/* Square */
+/* O */
   {
 	{-2, -2},
     {-2, -2},
@@ -251,21 +251,21 @@ int mPiecesInitialPosition  [7 /*kind */ ][4 /* rotation */ ][2 /* position */] 
     {-1, -1},
     {-1, -1}
    },
-/* L mirrored */
+/* J */
   {
 	{-1, -1},
     {-1, -1},
     {-2, -1},
     {-1, -2}
    },
-/* N */
+/* Z */
   {
 	{-2, -1},
     {-1, -2},
     {-1, -1},
     {-1, -1}
    },
-/* N mirrored */
+/* S */
   {
 	{-2, -1},
     {-1, -2},
@@ -281,27 +281,44 @@ int mPiecesInitialPosition  [7 /*kind */ ][4 /* rotation */ ][2 /* position */] 
    },
 };
 
-static char Pieces::GetBlockType (int pPiece, int pRotation, int pX, int pY)
+static char Pieces::GetBlockType (int piece, int rotation, int pX, int pY)
 {
-	return mPieces [pPiece][pRotation][pX][pY];
+	return pieces [piece][rotation][pX][pY];
 }
 
-static int Pieces::GetXInitialPosition (int pPiece, int pRotation)
+static int Pieces::GetXInitialPosition (int piece, int rotation)
 {
-	return mPiecesInitialPosition [pPiece][pRotation][0];
+	return piecesInitialPosition [piece][rotation][0];
 }
 
-static int Pieces::GetYInitialPosition (int pPiece, int pRotation)
+static int Pieces::GetYInitialPosition (int piece, int rotation)
 {
-    return mPiecesInitialPosition [pPiece][pRotation][1];
+    return piecesInitialPosition [piece][rotation][1];
 }
 
-static uint16_t Pieces::GetColor(int pPiece, int pRotation, int x, int y) {
-    switch (Pieces::GetBlockType(pPiece, pRotation, x, y)) {
+static uint16_t Pieces::GetColor(int piece, int rotation, int x, int y) {
+    switch (Pieces::GetBlockType(piece, rotation, x, y)) {
+        case 0:
+            return (uint16_t) 0;
+        // case 2:
+        //     return white;
+    }
+
+    switch (piece) {
+        case 0:
+            return yellow;
         case 1:
-            return green;
+            return cyan;
         case 2:
+            return orange;
+        case 3:
             return blue;
+        case 4:
+            return red;
+        case 5:
+            return green;
+        case 6:
+            return purple;
     }
 
     return (uint16_t) 0;

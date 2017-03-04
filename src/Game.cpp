@@ -69,7 +69,7 @@ void Game::drawStaticBlocks() {
     for (int y = 0; y < ROWS; ++y) {
         for (int x = 0; x < COLUMNS; ++x) {
             if(this->staticBlocks[y][x] != 0) {
-                this->neoMatrix.drawPixel(x, y, purple);
+                this->neoMatrix.drawPixel(x, y, this->staticBlocks[y][x]);
             }
         }
     }
