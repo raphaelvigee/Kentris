@@ -19,6 +19,7 @@
 class Game {
 private:
     int currentPieceKind, currentPieceRotation;
+    int score;
     uint16_t staticBlocks[ROWS][COLUMNS];
     int currentPieceX, currentPieceY;
 

@@ -20,6 +20,8 @@ void Game::setup() {
 }
 
 void Game::reset() {
+    this->score = 0;
+
     this->neoMatrix.fillScreen(0);
 
     this->neoMatrix.drawLine(1, 6, 5, 6, green);
@@ -76,8 +78,34 @@ void Game::drawStaticBlocks() {
 void Game::lost() {
     this->neoMatrix.fillScreen(0);
 
-    this->neoMatrix.drawLine(0, 0, 6, 9, red);
-    this->neoMatrix.drawLine(0, 9, 6, 0, red);
+    String textToDisplay = String(this->score);
+
+    int textWidth = textToDisplay.length() * 6;
+
+    int matrixW = this->neoMatrix.width();
+
+    int x = textWidth > matrixW ? matrixW : 1;
+    int y = 1;
+
+    auto renderScore = [](int x, int y, int score, Game * g) {
+        String textToDisplay = String(score);
+
+        g->neoMatrix.setCursor(x, y);
+        g->neoMatrix.print(textToDisplay);
+        g->neoMatrix.setTextWrap(false);
+        g->neoMatrix.setTextColor(score == 0 ? red : white);
+        g->neoMatrix.show();
+    };
+
+    renderScore(x, y, this->score, this);
+
+    while(x > (-textWidth) && textWidth > matrixW) {
+        this->neoMatrix.fillScreen(0);
+
+        renderScore(--x, y, this->score, this);
+
+        delay(200);
+    }
 
     this->neoMatrix.show();
 }
@@ -135,10 +163,28 @@ bool Game::isRowFull(int y) {
 }
 
 void Game::deleteFullRows() {
+    int n = 0;
     for (int y = ROWS - 1; y >= 0; --y) {
         if (this->isRowFull(y)) {
             this->deleteRow(y);
+            n++;
         }
+    }
+
+    // @see http://tetris.wikia.com/wiki/Scoring
+    switch (n) {
+        case 1:
+            this->score += 40;
+            break;
+        case 2:
+            this->score += 100;
+            break;
+        case 3:
+            this->score += 300;
+            break;
+        case 4:
+            this->score += 1200;
+            break;
     }
 }
 
@@ -247,7 +293,7 @@ bool Game::canDo(int action, bool allowOutOfMatrix = false) {
                     return false;
                 }
 
-                if(this->staticBlocks[y][x] != 0 && isDefined) {
+                if(isDefined && this->staticBlocks[y][x] != 0) {
                     return false;
                 }
             }
