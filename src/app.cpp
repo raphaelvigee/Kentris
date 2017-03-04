@@ -8,7 +8,7 @@
 Game *g;
 
 unsigned long previousMillis = 0;
-long interval = 700;
+long interval = 500;
 
 void setup() {
     Serial.begin(9600);
@@ -34,7 +34,7 @@ void loop() {
 
     if (digitalRead(C_PIN) == LOW  && lastCenterState == HIGH){
         lastCenterState = LOW;
-        g->requestDown();
+        g->requestRotate();
     }
 
     if (digitalRead(R_PIN) == LOW  && lastRightState == HIGH){
@@ -49,7 +49,9 @@ void loop() {
 
     if(g->isCurrentPieceClashing()) {
         g->lost();
-        delay(500);
+        if(digitalRead(L_PIN) == LOW || digitalRead(C_PIN) == LOW || digitalRead(R_PIN) == LOW) {
+            g->reset();
+        }
         return;
     }
 

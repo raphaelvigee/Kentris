@@ -13,6 +13,7 @@
 #define DIR_DOWN 0
 #define DIR_LEFT 1
 #define DIR_RIGHT 2
+#define ROTATE 3
 
 
 class Game {
@@ -30,12 +31,14 @@ public:
     void drawCurrentPiece();
     void drawStaticBlocks();
     void setup();
+    void reset();
     void drawBoard();
     void createNewPiece();
     void requestDown();
     void requestLeft();
     void requestRight();
-    bool canGo(int direction);
+    void requestRotate();
+    bool canDo(int action, bool allowOutOfMatrix = false);
     uint16_t getStaticBlock(int x, int y);
     void transformToStaticBlock();
     void lost();

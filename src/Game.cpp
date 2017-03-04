@@ -16,6 +16,10 @@ void Game::setup() {
     this->neoMatrix.setBrightness(10);
     this->neoMatrix.show();
 
+    this->reset();
+}
+
+void Game::reset() {
     this->neoMatrix.fillScreen(0);
 
     this->neoMatrix.drawLine(1, 6, 5, 6, green);
@@ -78,6 +82,16 @@ void Game::lost() {
     this->neoMatrix.show();
 }
 
+void Game::requestRotate() {
+    if(this->canDo(ROTATE)) {
+        if(this->currentPieceRotation == 3) {
+            this->currentPieceRotation = 0;
+        }
+
+        this->currentPieceRotation++;
+    }
+}
+
 void Game::createNewPiece() {
     this->currentPieceKind = (int) random(0, 6);
     this->currentPieceRotation = (int) random(0, 3);
@@ -90,23 +104,22 @@ void Game::createNewPiece() {
 }
 
 void Game::requestDown() {
-    if(this->canGo(DIR_DOWN)) {
+    if(this->canDo(DIR_DOWN, true)) {
         this->currentPieceY++;
     }else{
         this->transformToStaticBlock();
-        delay(700);
         this->createNewPiece();
     }
 }
 
 void Game::requestLeft() {
-    if(this->canGo(DIR_LEFT)) {
+    if(this->canDo(DIR_LEFT)) {
         this->currentPieceX--;
     }
 }
 
 void Game::requestRight() {
-    if(this->canGo(DIR_RIGHT)) {
+    if(this->canDo(DIR_RIGHT)) {
         this->currentPieceX++;
     }
 }
@@ -153,16 +166,29 @@ bool Game::isCurrentPieceClashing() {
     return false;
 }
 
-bool Game::canGo(int direction) {
+bool Game::canDo(int action, bool allowOutOfMatrix = false) {
     for (int shapeY = 0; shapeY < 5; ++shapeY) {
         for (int shapeX = 0; shapeX < 5; ++shapeX) {
             bool isDefined = true;
 
-            if(Pieces::GetColor(this->currentPieceKind, this->currentPieceRotation, shapeX, shapeY) != 0) {
+            int pieceKind = this->currentPieceKind;
+            int pieceRotation = this->currentPieceRotation;
+
+            switch (action) {
+                case ROTATE:
+                    if(pieceRotation == 3) {
+                        pieceRotation = 0;
+                    }
+
+                    pieceRotation++;
+                    break;
+            }
+
+            if(Pieces::GetColor(pieceKind, pieceRotation, shapeX, shapeY) != 0) {
                 int x = this->currentPieceX + shapeX;
                 int y = this->currentPieceY + shapeY;
 
-                switch (direction) {
+                switch (action) {
                     case DIR_DOWN:
                         y += 1;
                         if(y > ROWS - 1) {
@@ -181,15 +207,17 @@ bool Game::canGo(int direction) {
                             return false;
                         }
                         break;
-                    default:
-                        return false;
                 }
 
                 if(x > COLUMNS - 1 || y > ROWS - 1 || x < 0 || y < 0) {
                     isDefined = false;
                 }
 
-                if(this->staticBlocks[y][x] != 0 && isDefined) {
+                if(!isDefined && !allowOutOfMatrix) {
+                    return false;
+                }
+
+                if(this->staticBlocks[y][x] != 0) {
                     return false;
                 }
             }
