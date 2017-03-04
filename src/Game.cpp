@@ -10,6 +10,7 @@
 
 
 void Game::setup() {
+    delay(1000);
     this->neoMatrix.begin();
     this->neoMatrix.setRotation(1);
     this->neoMatrix.setBrightness(10);
@@ -51,6 +52,8 @@ void Game::drawCurrentPiece() {
 
             if(color != 0) {
                 this->neoMatrix.drawPixel(x, y, color);
+                // Serial.println("X:"+String(x));
+                // Serial.println("Y:"+String(y));
             }
         }
     }
@@ -79,16 +82,32 @@ void Game::createNewPiece() {
     this->currentPieceKind = (int) random(0, 6);
     this->currentPieceRotation = (int) random(0, 3);
 
-    this->currentPieceX = Pieces::GetXInitialPosition(this->currentPieceKind, this->currentPieceRotation) + 2;
+    // Serial.println("Kind:"+String(this->currentPieceKind));
+    // Serial.println("Rotation:"+String(this->currentPieceRotation));
+
+    this->currentPieceX = Pieces::GetXInitialPosition(this->currentPieceKind, this->currentPieceRotation);
     this->currentPieceY = Pieces::GetYInitialPosition(this->currentPieceKind, this->currentPieceRotation);
 }
 
 void Game::requestDown() {
-    if(this->canGoDown()) {
+    if(this->canGo(DIR_DOWN)) {
         this->currentPieceY++;
     }else{
         this->transformToStaticBlock();
+        delay(700);
         this->createNewPiece();
+    }
+}
+
+void Game::requestLeft() {
+    if(this->canGo(DIR_LEFT)) {
+        this->currentPieceX--;
+    }
+}
+
+void Game::requestRight() {
+    if(this->canGo(DIR_RIGHT)) {
+        this->currentPieceX++;
     }
 }
 
@@ -114,15 +133,17 @@ void Game::transformToStaticBlock() {
 bool Game::isCurrentPieceClashing() {
     for (int shapeY = 0; shapeY < 5; ++shapeY) {
         for (int shapeX = 0; shapeX < 5; ++shapeX) {
+            bool isDefined = true;
+
             if(Pieces::GetColor(this->currentPieceKind, this->currentPieceRotation, shapeX, shapeY) != 0) {
                 int x = this->currentPieceX + shapeX;
                 int y = this->currentPieceY + shapeY;
 
                 if(x > COLUMNS - 1 || y > ROWS - 1 || x < 0 || y < 0) {
-                    continue;
+                    isDefined = false;
                 }
 
-                if(this->staticBlocks[y][x] != 0) {
+                if(this->staticBlocks[y][x] != 0 && isDefined) {
                     return true;
                 }
             }
@@ -132,23 +153,43 @@ bool Game::isCurrentPieceClashing() {
     return false;
 }
 
-
-bool Game::canGoDown() {
+bool Game::canGo(int direction) {
     for (int shapeY = 0; shapeY < 5; ++shapeY) {
         for (int shapeX = 0; shapeX < 5; ++shapeX) {
+            bool isDefined = true;
+
             if(Pieces::GetColor(this->currentPieceKind, this->currentPieceRotation, shapeX, shapeY) != 0) {
                 int x = this->currentPieceX + shapeX;
-                int y = this->currentPieceY + shapeY + 1;
+                int y = this->currentPieceY + shapeY;
 
-                if(x > COLUMNS - 1 || x < 0 || y < 0) {
-                    continue;
+                switch (direction) {
+                    case DIR_DOWN:
+                        y += 1;
+                        if(y > ROWS - 1) {
+                            return false;
+                        }
+                        break;
+                    case DIR_LEFT:
+                        x -= 1;
+                        if(x < 0) {
+                            return false;
+                        }
+                        break;
+                    case DIR_RIGHT:
+                        x += 1;
+                        if(x > COLUMNS - 1) {
+                            return false;
+                        }
+                        break;
+                    default:
+                        return false;
                 }
 
-                if(y > ROWS - 1) {
-                    return false;
+                if(x > COLUMNS - 1 || y > ROWS - 1 || x < 0 || y < 0) {
+                    isDefined = false;
                 }
 
-                if(this->staticBlocks[y][x] != 0) {
+                if(this->staticBlocks[y][x] != 0 && isDefined) {
                     return false;
                 }
             }

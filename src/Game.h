@@ -10,6 +10,10 @@
 #define ROWS 10
 #define COLUMNS 7
 
+#define DIR_DOWN 0
+#define DIR_LEFT 1
+#define DIR_RIGHT 2
+
 
 class Game {
 private:
@@ -29,7 +33,9 @@ public:
     void drawBoard();
     void createNewPiece();
     void requestDown();
-    bool canGoDown();
+    void requestLeft();
+    void requestRight();
+    bool canGo(int direction);
     uint16_t getStaticBlock(int x, int y);
     void transformToStaticBlock();
     void lost();
