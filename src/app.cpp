@@ -63,5 +63,7 @@ void loop() {
         g->requestDown();
     }
 
+    g->deleteFullRows();
+
     g->drawBoard();
 }

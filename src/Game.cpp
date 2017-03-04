@@ -124,6 +124,36 @@ void Game::requestRight() {
     }
 }
 
+bool Game::isRowFull(int y) {
+    for (int x = 0; x < COLUMNS; ++x) {
+        if(this->staticBlocks[y][x] == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void Game::deleteFullRows() {
+    for (int y = ROWS - 1; y >= 0; --y) {
+        if (this->isRowFull(y)) {
+            this->deleteRow(y);
+        }
+    }
+}
+
+void Game::deleteRow(int n) {
+    for (int y = n; y > 0; --y) {
+        for (int x = 0; x < COLUMNS; ++x) {
+            this->staticBlocks[y][x] = this->staticBlocks[y-1][x];
+        }
+    }
+
+    for (int x = 0; x < COLUMNS; ++x) {
+        this->staticBlocks[0][x] = 0;
+    }
+}
+
 void Game::transformToStaticBlock() {
     for (int shapeY = 0; shapeY < 5; ++shapeY) {
         for (int shapeX = 0; shapeX < 5; ++shapeX) {

@@ -42,6 +42,9 @@ public:
     uint16_t getStaticBlock(int x, int y);
     void transformToStaticBlock();
     void lost();
+    void deleteFullRows();
+    void deleteRow(int n);
+    bool isRowFull(int y);
     bool isCurrentPieceClashing();
 };
 
